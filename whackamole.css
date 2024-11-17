@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bggreen: rgb(0, 104, 0);
+}
+
+body {
+    background-color: var(--bggreen);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-auto-rows: 80px 80px 80px;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+.box {
+    background-color: rgb(118, 79, 0);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 30px 10px rgba(0, 0, 0, 0.18) inset, 0px 10px rgb(58, 26, 0) inset;
+    border: 2px solid rgb(53, 24, 0);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.box .mole {
+    display: block;
+    height: 90%;
+    width: auto;
+    transform: translateY(10%);
+    cursor: pointer;
+    animation: riseup 0.5s ease-in-out;
+}
+
+@keyframes riseup {
+    0% {
+        transform: translateY(100%);
+    }
+}
+
+.header {
+    color: rgb(11, 38, 22);
+    font-family: "Pacifico";
+    text-align: center;
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+.points-container {
+    text-align: center;
+    font-size: 2em;
+    padding: 10px;
+    font-family: "Lato";
+    font-weight: bolder;
+    color: rgb(11, 38, 22);
+}
+
+.start-game,
+.end-game {
+    display: flex;
+    justify-content: center;
+}
+
+.start-game-button,
+.end-game-button {
+    border: none;
+    padding: 16px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    font-family: "Lato";
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.start-game-button {
+    color: greenyellow;
+}
+
+.end-game-button {
+    color: red;
+}
+
+.settings-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.settings-icon:hover{
+    animation: keeprotating 1s linear infinite;
+}
+
+@keyframes keeprotating {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: black;
+    background-color: rgb(32, 147, 32);
+    position: absolute;
+    min-height: 100px;
+    min-width: 200px;
+    padding: 20px;
+    border-radius: 0px 20px 20px 0px;
+    border: 5px solid rgba(0, 0, 0, 0.276);
+    border-left: none;
+    left: 0px;
+    top: 50px;
+    font-family: 'Lato';
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.189);
+    transform: translateX(-150%);
+
+    transition: transform linear 0.2s;
+}
+
+.settings-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: bolder;
+}
+
+.settings-container label {
+    padding-left: 0.5em;
+}
+
+input,
+label {
+    cursor: pointer;
+}
+
+.difficulty-save-button {
+    background-color: black;
+    border: none;
+    color: greenyellow;
+    padding: 0.5em 2em;
+    align-self: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.results-container {
+    position: fixed;
+    background-color: rgb(20, 104, 20);
+    border: 2px solid white;
+    min-width: 300px;
+    min-height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px 20px 20px 20px;
+    border: 5px solid rgba(0, 0, 0, 0.365);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Lato";
+}
+.results-container h1{
+    padding-bottom: 1em;
+}
+
+.results-container h4{
+    padding: 5px;
+}
+
+.results-container .results-close{
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    cursor: pointer;
+}
+
+.counter{
+    background-color: transparent;
+    color: rgb(255, 28, 28);
+    font-family: "Lato";
+    font-weight: bold;
+    height: 100px;
+    width: 100px;
+    font-size: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-shadow: 5px 5px 20px black;
+}
+
+.hidden {
+    display: none;
+}
